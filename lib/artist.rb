@@ -5,14 +5,11 @@ class Artist
   def initialize(name)
     @name = name
     @songs = []
+    self.save 
   end
 
   def add_song(song)
     self.songs << song    
-  end
-
-  def save
-    @@all << self    
   end
 
   def self.all      
@@ -26,7 +23,6 @@ class Artist
       self.create(name)
     end
   end
-
 
   def self.find(name)  
     self.all.detect { |artist| artist.name == name }
